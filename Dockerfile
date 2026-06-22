@@ -7,17 +7,17 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     gcc \
-    libffi-dev \
-    libsndfile1 \
-    libportaudio2 \
-    ffmpeg \
+    # libffi-dev \
+    # libsndfile1 \
+    # libportaudio2 \
+    # ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the application files and dependencies list
 COPY requirements.txt ./
 COPY main.py ./
 COPY agent.py ./
-COPY .env ./
+# COPY .env ./
 
 # Install Python dependencies
 RUN pip install --upgrade pip \
